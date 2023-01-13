@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 
+import com.lied.workshopmongodb.domain.Post;
 import com.lied.workshopmongodb.domain.User;
 import com.lied.workshopmongodb.dto.UserDTO;
 import com.lied.workshopmongodb.repositories.UserRepository;
@@ -20,6 +21,11 @@ public class UserService {
 	
 	public List<User> findAll(){
 		return userRepository.findAll();
+	}
+	
+	public List<Post> findAllPostsUser(String id){
+		Optional<User> user = userRepository.findById(id);
+		return user.get().getPosts();
 	}
 	
 	public User findById(String id) {

@@ -1,9 +1,12 @@
 package com.lied.workshopmongodb.dto;
 
+import java.io.Serializable;
+
 import com.lied.workshopmongodb.domain.User;
 
-public class AutorDTO {
-	
+public class AutorDTO implements Serializable{
+
+	private static final long serialVersionUID = 1L;
 	private String id;
 	private String name;
 	
