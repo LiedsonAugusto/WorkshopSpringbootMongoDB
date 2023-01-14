@@ -24,4 +24,8 @@ public class PostService {
 		Optional<Post> obj = postRepository.findById(id);
 		return obj.orElseThrow(() -> new ObjectNotFound("Id não encontrado"));
 	}
+	
+	public List<Post> findByTitle(String title){
+		return postRepository.searchTitle(title);
+	}
 }
